@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  background: none;
+  color: lightpink;
+  font-size: 5rem;
+  position: relative;
+  text-align: center;
+  top: 8vh;
+  left: -1vw;
+}
+.app {
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.time_select,
+.sound_picker,
+.player_container {
+  height: 80%;
+
+  /* places everything in a row */
+  display: flex;
+  justify-content: space-evenly;
+
+  align-items: center;
+  flex-direction: column;
+  /* so same length and width */
+  flex: 1;
+}
+.player_container {
+  position: relative;
+}
+.player_container svg {
+  position: absolute;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  /* removing circle essentially so we can click on the play button (it is on top) */
+  pointer-events: none;
+}
+
+.time_display {
+  /* button is now centered */
+  position: absolute;
+  bottom: 10%;
+  color: white;
+  font-size: 50px;
+}
+
+video {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: -10;
+}
+
+.time_select button,
+.sound_picker button {
+  color: white;
+  width: 30%;
+  height: 10%;
+  background: none;
+  border: 2px solid white;
+  /* so it looks clickable */
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: all 1s ease;
+}
+
+.time_select button:hover {
+  color: black;
+  background: white;
+}
+
+.sound_picker button {
+  border: none;
+  /* setting 120px so there is room to work with border radius */
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  padding: 30px;
+}
+/* allows you to select specific buttons ":nth-child()" */
+.sound_picker button:nth-child(1) {
+  background: #4972a1;
+}
+.sound_picker button:nth-child(2) {
+  background: #a14f49;
+}
+
+/* placing the img of the button within the button correctly */
+.sound_picker button img {
+  height: 100%;
+}
